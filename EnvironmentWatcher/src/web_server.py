@@ -12,7 +12,7 @@
 from flask import Flask, render_template
 import pymysql
 import matplotlib.pyplot as plt # type: ignore
-from datetime import datetime
+from datetime import datetime# type: ignore
 import matplotlib.dates as mdates
 
 app = Flask(__name__)
@@ -46,12 +46,12 @@ def index():
             co2_level_values = [row[3] for row in data]
 
             # 折れ線グラフ
-            fig, ax1 = plt.subplots(figsize=(10, 6)) 
+            fig, ax1 = plt.subplots(figsize=(10, 6)) # type: ignore
             ## 温度のプロット
             ax1.plot(timestamps, temperature_values, label='Temperature', marker='o', color='red')
             #ax1.set_xlabel('Time')
             ax1.set_ylabel('Temperature (°C)', color='red')
-            plt.xticks(rotation=45)
+            plt.xticks(rotation=45)# type: ignore
             ax1.tick_params('y', colors='red')
             ax1.set_ylim(0, 35)
             ## CO2レベルのプロット
@@ -61,10 +61,10 @@ def index():
             ax2.tick_params('y', colors='blue')
             ax2.set_ylim(400, 2500)
             ## グラフのフォーマット設定
-            plt.xticks(rotation=45)
+            plt.xticks(rotation=45)# type: ignore
             ax1.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M:%S'))
             plt.tight_layout()
-            plt.savefig("./src/static/images/data.png")
+            plt.savefig("./src/static/images/data.png")# type: ignore
 
             return render_template("index.html", data=data[:15], graph_url="/static/images/data.png")
     except pymysql.Error as e:
