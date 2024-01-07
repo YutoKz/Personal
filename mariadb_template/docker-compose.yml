@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  mariadb:
+    container_name: mariadb
+    restart: always
+    build: .
+    environment:
+      - MYSQL_ROOT_PASSWORD=k2002y1417
+      - MYSQL_DATABASE=example
+      - MYSQL_USER=pi
+      - MYSQL_PASSWORD=k2002y1417
+    volumes:
+      - ./data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    #ports:
+    #  - "3307:3306"
