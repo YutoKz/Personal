@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS envdata;
+USE envdata;
+
+CREATE TABLE IF NOT EXISTS sensor_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    temperature FLOAT,
+    co2_level FLOAT
+);
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="all"> 
+        <div class="header">
+            <header>
+                <h1 id="mysite">My Website</h1>
+            </header>
+            <nav class="header-nav">
+                <div class="header-navdiv">
+                    <a href="/" class="btn-edge">Home</a>
+                    <a href="/" class="btn-edge">??</a>
+                    <a href="http://192.168.3.6/nextcloud/apps/dashboard/" class="btn-edge">Nextcloud</a>
+                    <a href="https://chat.openai.com" class="btn-edge">ChatGPT</a>
+                </div>
+            </nav>
+        </div>
+        <div class="main">
+            <div class="main1">
+                <h1 id="main1-Home">Home</h1>
+                <h2>Indoor Environment</h2>
+            </div>
+            <div class="main2">
+
+                <!-- 左：表データ -->
+                <div class="table">
+                    <table>
+                        <tr>
+                            <!-- <th>id </th> -->
+                            <th>Time</th>
+                            <th>Temperature(°C) </th>
+                            <th>CO2(ppm) </th>
+                        </tr>
+                        {% for row in data %}
+                        <tr>
+                            <!--
+                                {% for column in row %}
+                                <td>{{ column }}</td>
+                                {% endfor %}
+                            -->
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+
+                <!-- 右：グラフ -->
+                <div class="graph">
+                    <img src="{{ graph_url }}" alt="Graph" height="400">   
+                </div> 
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
