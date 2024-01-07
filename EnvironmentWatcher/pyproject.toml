@@ -1,0 +1,29 @@
+[project]
+name = "environmentwatcher"
+version = "0.1.0"
+description = "Add your description here"
+dependencies = [
+    "flask>=3.0.0",
+    "PyMySQL>=1.1.0",
+    "matplotlib>=3.7.4",
+    "paho-mqtt>=1.6.1",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[project.scripts]
+hello = "environmentwatcher:hello"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/environmentwatcher"]
