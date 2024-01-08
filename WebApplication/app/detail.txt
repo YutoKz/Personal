@@ -1,2 +1,11 @@
 https://qiita.com/hajime-f/items/c40571647135df327aa7
 dockerで nginx + Django + MySQL
+
+変更点：
+・setting.pyのallowedhostに192.168.3.6を追加
+・app_nginx.conf のserver_nameをnginxに変更
+・docker-compose.ymlのdbのportsを3306:3306=>3307:3306
+　nginxのportsを80:80=>81:80　に
+
+接続は
+192.168.3.6:81
