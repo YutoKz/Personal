@@ -1,0 +1,2 @@
+https://qiita.com/hajime-f/items/c40571647135df327aa7
+dockerで nginx + Django + MySQL
