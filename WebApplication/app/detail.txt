@@ -2,6 +2,7 @@ https://qiita.com/hajime-f/items/c40571647135df327aa7
 dockerで nginx + Django + MySQL
 
 変更点：
+・mysqlclientのバージョンには触るな。caching_sha2_password'の問題が出る可能性あり
 ・setting.pyのallowedhostに192.168.3.6を追加
 ・app_nginx.conf のserver_nameをnginxに変更
 ・docker-compose.ymlの
