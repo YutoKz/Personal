@@ -1,0 +1,6 @@
+<h1>詳細</h1>
+<div>タイトル:{{object.title}}</div>
+<div>status:{{object.get_status_display}}</div>
+<div>内容:{{object.body}}</div>
+<p><a href="{% url 'mytodo:task-update' object.pk%}">編集</a></p>
+

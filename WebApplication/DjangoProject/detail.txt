@@ -1,5 +1,5 @@
 https://qiita.com/hajime-f/items/c40571647135df327aa7
-dockerで nginx + Django + MySQL
+dockerで nginx + Django + Postgres
 
 変更点：
 ・mysqlclientのバージョンには触るな。caching_sha2_password'の問題が出る可能性あり
@@ -17,7 +17,7 @@ dockerで nginx + Django + MySQL
 
 
 起動
-sudo docker compose run python django-admin.py startproject app .
+sudo docker compose run python django-admin startproject app .
 
 ------------------------------------------------
 DATABASES = {
@@ -51,3 +51,6 @@ sudo docker compose run python ./manage.py collectstatic    # 静的ファイル
 
 コンテナ内でのpostgres でのログインは
 psql -h localhost -U postgres(ルート) 
+
+新アプリ作成時は
+sudo docker compose run python django-admin startapp [アプリ名]
