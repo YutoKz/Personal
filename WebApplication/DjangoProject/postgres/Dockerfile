@@ -1,0 +1,4 @@
+# ver変更済み
+FROM postgres:15
+
+COPY init.d/* /docker-entrypoint-initdb.d/

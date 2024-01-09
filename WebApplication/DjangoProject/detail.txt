@@ -6,10 +6,14 @@ dockerで nginx + Django + MySQL
 ・setting.pyのallowedhostに192.168.3.6を追加
 ・app_nginx.conf のserver_nameをnginxに変更
 ・docker-compose.ymlの
-　dbのportsを3306:3306=>3307:3306
-　nginxのportsを80:80=>81:80　に
+　dbのportsを3306:3306=>3308:3306
+　nginxのportsを80:80=>82:80　に
 ・mysqlのバージョンを上げた8.2
 
+・コンテナ名の後ろに_DjangoProject
+・django4.2, nginx:1.24.0, python3.10
+・app_nginx.confのservernameの後ろに_DjangoProject
+・volume 名
 
 
 起動
@@ -46,4 +50,4 @@ sudo docker compose up -d
 
 
 接続は
-192.168.3.6:81
+192.168.3.6:82
