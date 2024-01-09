@@ -19,17 +19,12 @@ dockerで nginx + Django + MySQL
 起動
 sudo docker compose run python django-admin.py startproject app .
 
-
+------------------------------------------------
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',    # コメントアウト
-        'ENGINE': 'django.db.backends.mysql',        # 追加
-        # 'NAME': os.path.join(BASE_DIR, 'app_db'),  # コメントアウト
-        'NAME': 'app_db',    # init.sql で CREATE したデータベース名と同じことを確認
-        'USER': 'app_user',  # 追加
-        'PASSWORD': '*****', # 追加（環境変数で指定したパスワードと同じもの）
-        'PORT': '3306',      # 追加
-        'HOST': 'db',        # 追加
+        
+        ここ変更
+
     }
 }
 
@@ -41,6 +36,8 @@ STATIC_ROOT = '/static/'  # 追加
 LANGUAGE_CODE = 'ja'      # 編集
 TIME_ZONE = 'Asia/Tokyo'  # 編集
 
+------------------------------------------------
+
 sudo docker compose up -d    #　先にこっちでは？
 
 sudo docker compose run python ./manage.py migrate          # DBマイグレーション
@@ -51,3 +48,6 @@ sudo docker compose run python ./manage.py collectstatic    # 静的ファイル
 
 接続は
 192.168.3.6:82
+
+コンテナ内でのpostgres でのログインは
+psql -h localhost -U postgres(ルート) 
