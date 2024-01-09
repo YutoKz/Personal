@@ -29,8 +29,8 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "k2002y1417"
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=k2002y1417
     volumes:
       - djangoproject.db.volume:/var/lib/postgres
       - ./postgres/init.d:/docker-entrypoint-initdb.d

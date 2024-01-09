@@ -41,11 +41,11 @@ STATIC_ROOT = '/static/'  # 追加
 LANGUAGE_CODE = 'ja'      # 編集
 TIME_ZONE = 'Asia/Tokyo'  # 編集
 
+sudo docker compose up -d    #　先にこっちでは？
 
 sudo docker compose run python ./manage.py migrate          # DBマイグレーション
 sudo docker compose run python ./manage.py createsuperuser  # 管理者の設定
 sudo docker compose run python ./manage.py collectstatic    # 静的ファイルをコピー
-sudo docker compose up -d
 
 
 
