@@ -1,0 +1,34 @@
+{% extends 'env_watcher/base.html' %}
+{% load static %}
+{% block content %}
+<div class="main1">
+    <h1 id="main1-Home">Home</h1>
+    <h2>Indoor Environment</h2>
+</div>
+<div class="main2">
+
+    <!-- 左：表データ -->
+    <div class="table">
+        <table>
+            <tr>
+                <th>Time</th>
+                <th>Temperature(°C) </th>
+                <th>CO2(ppm) </th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td>{{ row.1 }}</td>
+                <td>{{ row.2 }}</td>
+                <td>{{ row.3 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- 右：グラフ -->
+    <div class="graph">
+	    <img src="{% static 'images/data.png' %}" alt="Graph" height="400">
+    </div> 
+
+</div>
+{% endblock %}

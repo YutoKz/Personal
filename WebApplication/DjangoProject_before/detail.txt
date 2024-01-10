@@ -1,0 +1,63 @@
+https://qiita.com/hajime-f/items/c40571647135df327aa7
+dockerで nginx + Django + Postgres
+
+変更点：
+・mysqlclientのバージョンには触るな。caching_sha2_password'の問題が出る可能性あり
+・setting.pyのallowedhostに192.168.3.6を追加
+・app_nginx.conf のserver_nameをnginxに変更
+・docker-compose.ymlの
+　dbのportsを3306:3306=>3308:3306
+　nginxのportsを80:80=>82:80　に
+・mysqlのバージョンを上げた8.2
+
+・コンテナ名の後ろに_DjangoProject
+・django4.2, nginx:1.24.0, python3.10
+・app_nginx.confのservernameの後ろに_DjangoProject
+・volume 名
+
+
+起動
+sudo docker compose run python django-admin startproject app .
+
+------------------------------------------------
+DATABASES = {
+    'default': {
+        
+        ここ変更
+
+    }
+}
+
+STATIC_URL = '/static/'   # 追加
+STATIC_ROOT = '/static/'  # 追加
+
+...（中略）
+
+LANGUAGE_CODE = 'ja'      # 編集
+TIME_ZONE = 'Asia/Tokyo'  # 編集
+
+------------------------------------------------
+
+sudo docker compose up -d    #　先にこっちでは？
+
+sudo docker compose run python ./manage.py migrate          # DBマイグレーション
+sudo docker compose run python ./manage.py createsuperuser  # 管理者の設定
+sudo docker compose run python ./manage.py collectstatic    # 静的ファイルをコピー
+
+
+
+接続は
+192.168.3.6:82
+
+コンテナ内でのpostgres でのログインは
+psql -h localhost -U postgres(ルート) 
+
+[新アプリ作成時]
+sudo docker compose run python django-admin startapp [アプリ名]
+setting.pyのInstalled_appsに追加
+model作成
+sudo docker compose run python ./manage.py makemigrations
+sudo docker compose run python ./manage.py migrate
+viewの作成
+html作成
+urls.py変更

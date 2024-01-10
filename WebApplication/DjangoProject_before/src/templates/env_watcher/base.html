@@ -1,0 +1,31 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="all">
+        <div class="header">
+            <header>
+                <h1 id="mysite">My Website</h1>
+            </header>
+            <nav class="header-nav">
+                <div class="header-navdiv">
+                    <a href="/" class="btn-edge">Home</a>
+                    <a href="/" class="btn-edge">??</a>
+                    <a href="http://192.168.3.6/nextcloud/apps/dashboard/" class="btn-edge">Nextcloud</a>
+                    <a href="https://chat.openai.com" class="btn-edge">ChatGPT</a>
+                </div>
+            </nav>
+        </div>
+        <div class="main">
+	{% block content %}
+	{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

@@ -38,12 +38,12 @@ TIME_ZONE = 'Asia/Tokyo'  # 編集
 
 ------------------------------------------------
 
-sudo docker compose up -d    #　先にこっちでは？
 
 sudo docker compose run python ./manage.py migrate          # DBマイグレーション
 sudo docker compose run python ./manage.py createsuperuser  # 管理者の設定
 sudo docker compose run python ./manage.py collectstatic    # 静的ファイルをコピー
 
+sudo docker compose up -d    
 
 
 接続は
@@ -52,5 +52,12 @@ sudo docker compose run python ./manage.py collectstatic    # 静的ファイル
 コンテナ内でのpostgres でのログインは
 psql -h localhost -U postgres(ルート) 
 
-新アプリ作成時は
+[新アプリ作成時]
 sudo docker compose run python django-admin startapp [アプリ名]
+setting.pyのInstalled_appsに追加
+model作成
+sudo docker compose run python ./manage.py makemigrations
+sudo docker compose run python ./manage.py migrate
+viewの作成
+html作成
+urls.py変更
