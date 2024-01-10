@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
 # Create your views here.
-def index(request):
+def index(request):# type: ignore
 
     DB_HOST = "192.168.3.6"
     DB_USER = "django"
@@ -55,11 +55,14 @@ def index(request):
     except pymysql.Error as e:
         return f"Error retrieving data from MariaDB: {e}"
 
+
     # ビューで渡すデータを作成
+    formatted_data = [(item[0], item[1].strftime("%H:%M:%S"), item[2], item[3]) for item in data]
+
     context = {
-            'data': data[:15],
+            'data': formatted_data[:15],
     }
 
     # テンプレートをレンダリングしてレスポンスを返す
-    return render(request, 'env_watcher/index.html', context)
+    return render(request, 'env_watcher/index.html', context) # type: ignore
 

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="main1">
+    <h2>Task Detail</h2>
+</div>
+
+<div class="todo-main">
+
+    <div>タイトル:{{object.title}}</div>
+    <div>status:{{object.get_status_display}}</div>
+    <div>内容:{{object.body}}</div>
+    <p><a href="{% url 'mytodo:task-update' object.pk%}">編集</a></p>
+</div>
+
+{% endblock %}

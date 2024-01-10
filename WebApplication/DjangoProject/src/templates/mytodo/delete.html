@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="main1">
+    <h2>Delete Task</h2>
+</div>
+
+<div class="todo-main">
+    <form action="" method="post" class="todo-form">
+        {% csrf_token %}
+        <p class="todo-delete-form">本当に削除しますか？</p>
+        <p class="todo-delete-form"><input type="submit" value="Yes"></p>
+        <p class="todo-delete-form"><a href="{% url 'mytodo:task-list' %}">戻る</a></p>
+    </form>
+</div>
+{% endblock %}

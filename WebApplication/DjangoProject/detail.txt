@@ -56,8 +56,8 @@ psql -h localhost -U postgres(ルート)
 sudo docker compose run python django-admin startapp [アプリ名]
 setting.pyのInstalled_appsに追加
 model作成
+viewの作成
 sudo docker compose run python ./manage.py makemigrations
 sudo docker compose run python ./manage.py migrate
-viewの作成
 html作成
 urls.py変更

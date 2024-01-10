@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('', include('env_watcher.urls')),
     path('admin/', admin.site.urls),
-    path('environment/', include('env_watcher.urls')),
+    path('todo/', include('mytodo.urls')),
 ]

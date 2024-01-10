@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="main1">
+    <h2>Task List</h2>
+</div>
+
+<div class="todo-main">
+
+
+
+    <a href="create/"><p>新規追加</p></a>
+    <ul>
+        {% for task in object_list %}
+        {% if task.status != 0 %}
+            <li><del><a href="detail/{{ task.id }}">{{ task.title }}</a>  </del>{{ task.get_status_display }} <a href="{% url 'mytodo:task-delete' task.pk %}">削除</a></li>
+        {% else %}
+            <li><a href="detail/{{ task.id }}">{{ task.title }}</a>  {{ task.get_status_display }} <a href="{% url 'mytodo:task-delete' task.pk %}">削除</a></li>
+        {% endif %}
+
+        {% empty %}
+            <li>No tasks</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
+

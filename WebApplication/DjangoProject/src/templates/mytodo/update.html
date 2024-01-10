@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="main1">
+    <h2>Update Task</h2>
+</div>
+
+<div class="todo-main">
+
+
+    <form action="" method="post" class="todo-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="登録" class="todo-form">
+    </form>
+</div>
+{% endblock %}
