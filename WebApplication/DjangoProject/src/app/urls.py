@@ -21,4 +21,5 @@ urlpatterns = [
     path('', include('env_watcher.urls')),
     path('admin/', admin.site.urls),
     path('todo/', include('mytodo.urls')),
+
 ]

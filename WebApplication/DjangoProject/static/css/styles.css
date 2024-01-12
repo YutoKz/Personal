@@ -119,6 +119,15 @@ body {
     margin: 0px;
 }
 
+.koizumi {
+    justify-content: center;
+    align-items: center;
+    
+}
+.koizumi-img {
+    height: 300px;
+}
+
 .table {
     width: 450px;
     margin-left: 80px;
