@@ -119,19 +119,91 @@ body {
     margin: 0px;
 }
 
-.koizumi {
+.controllers {
     justify-content: center;
     align-items: center;
     
 }
-.koizumi-img {
-    height: 300px;
+.koizumi {
+    position:relative;
+    height: 500px;
 }
+.koizumi-img {
+    height: 100%;
+}
+.koizumi > a {
+    position: absolute;
+    margin: 0px;
+    text-align: center;
+    font-size: 13px;
+
+    display: inline-block;
+    text-decoration: none;
+    background: #ccc;/*ボタン色*/
+    color: #555;/*文字色*/
+    border-bottom: solid 2px #444;/*影厚み色*/
+    border-radius: 3px;
+}
+.koizumi > a:active {
+    /*ボタンを押したとき*/  
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+    border-bottom: none;
+}
+#koizumi-btn1 {
+    width: 60%;
+    height: 4%;
+    top: 11%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#koizumi-btn2 {
+    width: 30%;
+    height: 4%;
+    top: 17%;
+    left: 65%;
+    transform: translateX(-50%);
+}
+#koizumi-btn3 {
+    width: 30%;
+    height: 4%;
+    top: 17%;
+    left: 35%;
+    transform: translateX(-50%);
+}
+#koizumi-btn4 {
+    width: 60%;
+    height: 4%;
+    top: 23%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#koizumi-btn5 {
+    width: 60%;
+    height: 4%;
+    top: 29%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#koizumi-btn6 {
+    width: 60%;
+    height: 4%;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#koizumi-btn7 {
+    width: 60%;
+    height: 4%;
+    top: 41%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 
 .table {
     width: 450px;
     margin-left: 80px;
-    background-color: #f2f2f2;
+    background-color: #ffffff;
 }
 .graph {
     flex: 1;

@@ -22,4 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('todo/', include('mytodo.urls')),
 
+
+
+
 ]

@@ -60,7 +60,7 @@ def index(request):# type: ignore
     formatted_data = [(item[0], item[1].strftime("%H:%M:%S"), item[2], item[3]) for item in data]
 
     context = {
-            'data': formatted_data[:15],
+            'data': formatted_data[:10],
     }
 
     # テンプレートをレンダリングしてレスポンスを返す
