@@ -120,13 +120,13 @@ body {
 }
 
 .controllers {
-    justify-content: center;
-    align-items: center;
-    
+    justify-content: center; 
+    align-items: flex-end;
 }
 .koizumi {
     position:relative;
     height: 500px;
+    margin-left: 50px;
 }
 .koizumi-img {
     height: 100%;
@@ -190,6 +190,7 @@ body {
     top: 35%;
     left: 50%;
     transform: translateX(-50%);
+    font-size: 11px;
 }
 #koizumi-btn7 {
     width: 60%;
@@ -198,6 +199,28 @@ body {
     left: 50%;
     transform: translateX(-50%);
 }
+#koizumi-logo {
+    position: absolute;
+    margin: 0px;
+    text-align: center;
+    font-size: 13px;
+    
+    width: 80%;
+    height: 4%;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.shirokuma {
+    position:relative;
+    height: 410px;
+    margin-left: 50px;
+}
+.shirokuma-img {
+    height: 100%;
+}
+
 
 
 .table {
