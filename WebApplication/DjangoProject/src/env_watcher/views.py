@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
+from django.http import HttpResponse
 import pymysql
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
@@ -52,17 +53,34 @@ def index(request):# type: ignore
             plt.tight_layout()
             plt.savefig("/static/images/data.png")# type: ignore
 
-    except pymysql.Error as e:
-        return f"Error retrieving data from MariaDB: {e}"
+    except pymysql.Error:
+        formatted_data = [(0, 0, 0, 0)]
+        context = {
+            'data': formatted_data,
+        }
+        return HttpResponse('<h1>pymysql.Error</h1>')
 
 
     # ビューで渡すデータを作成
     formatted_data = [(item[0], item[1].strftime("%H:%M:%S"), item[2], item[3]) for item in data]
 
     context = {
-            'data': formatted_data[:10],
+            'data': formatted_data[:8],
     }
 
     # テンプレートをレンダリングしてレスポンスを返す
     return render(request, 'env_watcher/index.html', context) # type: ignore
+
+
+def koizumi_btn1 (request):# type: ignore
+    # 特定の赤外線送信をmqtt通信で命令、トピックは具体的に(照度up,タイマー解除)
+
+    return redirect(request.META.get('HTTP_REFERER', ''))# type: ignore
+
+
+
+
+
+
+
 

@@ -26,7 +26,7 @@
 
     <!-- 右：グラフ -->
     <div class="graph">
-	    <img src="{% static 'images/data.png' %}" alt="Graph" height="400">
+	    <img src="{% static 'images/data.png' %}" alt="Graph" height="300px">
     </div> 
 </div>
 
@@ -34,9 +34,9 @@
     <h2>Controller</h2>
 </div>
 <div class="main2 controllers">
-    <div class="koizumi">
-        <img src="{% static 'images/koizumi.png' %}" class="koizumi-img">
-		<a href="#" id="koizumi-btn1">順送り</a>
+	<div class="koizumi">
+		<img src="{% static 'images/koizumi.png' %}" class="koizumi-img">
+		<a href="{% url 'env_watcher:koizumi-btn1' %}" id="koizumi-btn1">順送り</a>
 		<a href="#" id="koizumi-btn2">▼</a>
 		<a href="#" id="koizumi-btn3">▲</a>
 		<a href="#" id="koizumi-btn4">30分OFF</a>
