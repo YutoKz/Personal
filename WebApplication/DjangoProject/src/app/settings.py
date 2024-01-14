@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mytodo',
     'env_watcher',
+    'utility',
 ]
 
 MIDDLEWARE = [
