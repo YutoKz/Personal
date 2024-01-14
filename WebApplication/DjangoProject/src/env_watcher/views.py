@@ -6,6 +6,7 @@ from django.http import HttpResponse
 import pymysql
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
+import paho.mqtt.client as mqtt
 
 # Create your views here.
 def index(request):# type: ignore
@@ -74,9 +75,47 @@ def index(request):# type: ignore
 
 def koizumi_btn1 (request):# type: ignore
     # 特定の赤外線送信をmqtt通信で命令、トピックは具体的に(照度up,タイマー解除)
-
+    client = mqtt.Client()
+    client.connect("192.168.3.6", 1883)
+    client.publish("koizumi", b"junnokuri")
+    client.disconnect()
     return redirect(request.META.get('HTTP_REFERER', ''))# type: ignore
-
+def koizumi_btn2 (request):# type: ignore
+    client = mqtt.Client()
+    client.connect("192.168.3.6", 1883)
+    client.publish("koizumi", b"up")
+    client.disconnect()
+    return redirect(request.META.get('HTTP_REFERER', ''))# type: ignore
+def koizumi_btn3 (request):# type: ignore
+    client = mqtt.Client()
+    client.connect("192.168.3.6", 1883)
+    client.publish("koizumi", b"down")
+    client.disconnect()
+    return redirect(request.META.get('HTTP_REFERER', ''))# type: ignore
+def koizumi_btn4 (request):# type: ignore
+    client = mqtt.Client()
+    client.connect("192.168.3.6", 1883)
+    client.publish("koizumi", b"30minoff")
+    client.disconnect()
+    return redirect(request.META.get('HTTP_REFERER', ''))# type: ignore
+def koizumi_btn5 (request):# type: ignore
+    client = mqtt.Client()
+    client.connect("192.168.3.6", 1883)
+    client.publish("koizumi", b"60minoff")
+    client.disconnect()
+    return redirect(request.META.get('HTTP_REFERER', ''))# type: ignore
+def koizumi_btn6 (request):# type: ignore
+    client = mqtt.Client()
+    client.connect("192.168.3.6", 1883)
+    client.publish("koizumi", b"kaijo")
+    client.disconnect()
+    return redirect(request.META.get('HTTP_REFERER', ''))# type: ignore
+def koizumi_btn7 (request):# type: ignore
+    client = mqtt.Client()
+    client.connect("192.168.3.6", 1883)
+    client.publish("koizumi", b"shoutou")
+    client.disconnect()
+    return redirect(request.META.get('HTTP_REFERER', ''))# type: ignore
 
 
 

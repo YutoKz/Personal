@@ -37,12 +37,12 @@
 	<div class="koizumi">
 		<img src="{% static 'images/koizumi.png' %}" class="koizumi-img">
 		<a href="{% url 'env_watcher:koizumi-btn1' %}" id="koizumi-btn1">順送り</a>
-		<a href="#" id="koizumi-btn2">▼</a>
-		<a href="#" id="koizumi-btn3">▲</a>
-		<a href="#" id="koizumi-btn4">30分OFF</a>
-		<a href="#" id="koizumi-btn5">60分OFF</a>
-		<a href="#" id="koizumi-btn6">タイマー解除</a>
-		<a href="#" id="koizumi-btn7">消灯</a>
+		<a href="{% url 'env_watcher:koizumi-btn2' %}" id="koizumi-btn2">▲</a>
+		<a href="{% url 'env_watcher:koizumi-btn3' %}" id="koizumi-btn3">▼</a>
+		<a href="{% url 'env_watcher:koizumi-btn4' %}" id="koizumi-btn4">30分OFF</a>
+		<a href="{% url 'env_watcher:koizumi-btn5' %}" id="koizumi-btn5">60分OFF</a>
+		<a href="{% url 'env_watcher:koizumi-btn6' %}" id="koizumi-btn6">タイマー解除</a>
+		<a href="{% url 'env_watcher:koizumi-btn7' %}" id="koizumi-btn7">消灯</a>
 		<p id="koizumi-logo"><b>KOIZUMI</b></p>
     </div>
     <div class="shirokuma">
